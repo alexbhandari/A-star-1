@@ -1,3 +1,4 @@
+/** Code blonges to Jonas David Nick, https://github.com/jonasnick */
 package AStar;
 import AStar.IGoalNode;
 import AStar.ISearchNode;

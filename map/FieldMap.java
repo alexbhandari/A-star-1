@@ -23,6 +23,6 @@ public class FieldMap implements TypeMap {
    }
 
    public void set(int x, int y, Types type) {
-      map[x][y] = Types.getValue();
+      map[x][y] = type.getValue();
    }
 }

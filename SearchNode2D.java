@@ -1,3 +1,4 @@
+/** Code blonges to Jonas David Nick, https://github.com/jonasnick, changed to abstract class by me */
 package AStar;
 import AStar.ASearchNode;
 import AStar.ISearchNode;
