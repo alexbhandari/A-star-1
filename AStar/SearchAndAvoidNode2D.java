@@ -7,8 +7,11 @@ import java.util.*;
  @author Alex */
 public class SearchAndAvoidNode2D extends SearchNode2D {
 
-   public SearchAndAvoidNode2D(int x, int y, SearchNode2D parent, GoalNode2D goal) {
+   private TypeMap map;
+
+   public SearchAndAvoidNode2D(TypeMap map, int x, int y, SearchNode2D parent, GoalNode2D goal) {
       super(x, y, parent, goal);
+      this.map = map;
    }
 
    /**Overridden from SearchNode2D, adds functionality for diagonal movement and returns only values that are not forbidden as specified by the map.
@@ -17,14 +20,49 @@ public class SearchAndAvoidNode2D extends SearchNode2D {
    @Override
    public ArrayList<ISearchNode> getSuccessors() {
        ArrayList<ISearchNode> successors = new ArrayList<ISearchNode>();
-       successors.add(new SearchAndAvoidNode2D(this.x-1, this.y, this, this.goal));
-       successors.add(new SearchAndAvoidNode2D(this.x+1, this.y, this, this.goal));
-       successors.add(new SearchAndAvoidNode2D(this.x, this.y+1, this, this.goal));
-       successors.add(new SearchAndAvoidNode2D(this.x, this.y-1, this, this.goal));
-       successors.add(new SearchAndAvoidNode2D(this.x-1, this.y-1, this, this.goal));
-       successors.add(new SearchAndAvoidNode2D(this.x-1, this.y+1, this, this.goal));
-       successors.add(new SearchAndAvoidNode2D(this.x+1, this.y-1, this, this.goal));
-       successors.add(new SearchAndAvoidNode2D(this.x+1, this.y+1, this, this.goal));
+       int i;
+       int j;
+
+       i = x-1;
+       j = y;
+       if ( map.checkBounds(i,j) && (map.isEmpty(i,j) || map.isStyrofoam(i,j)) )
+          successors.add(new SearchAndAvoidNode2D(this.map, i, j, this, this.goal));
+
+       i = x+1;
+       j = y;
+       if ( map.checkBounds(i,j) && (map.isEmpty(i,j) || map.isStyrofoam(i,y)) )
+          successors.add(new SearchAndAvoidNode2D(this.map, i, j, this, this.goal));
+
+       i = x;
+       j = y+1;
+       if ( map.checkBounds(i,j) && (map.isEmpty(i,j) || map.isStyrofoam(i,j)) )
+          successors.add(new SearchAndAvoidNode2D(this.map, i, j, this, this.goal));
+
+       i = x;
+       j = y-1;
+       if ( map.checkBounds(i,j) && (map.isEmpty(i,j) || map.isStyrofoam(i,j)) )
+          successors.add(new SearchAndAvoidNode2D(this.map, i, j, this, this.goal));
+
+       i = x-1;
+       j = y-1;
+       if ( map.checkBounds(i,j) && (map.isEmpty(i,j) || map.isStyrofoam(i,j)) )
+          successors.add(new SearchAndAvoidNode2D(this.map, i, j, this, this.goal));
+
+       i = x-1;
+       j = y+1;
+       if ( map.checkBounds(i,j) && (map.isEmpty(i,j) || map.isStyrofoam(i,j)) )
+          successors.add(new SearchAndAvoidNode2D(this.map, i, j, this, this.goal));
+
+       i = x+1;
+       j = y-1;
+       if ( map.checkBounds(i,j) && (map.isEmpty(i,j) || map.isStyrofoam(i,j)) )
+          successors.add(new SearchAndAvoidNode2D(this.map, i, j, this, this.goal));
+
+       i = x+1;
+       j = y+1;
+       if ( map.checkBounds(i,j) && (map.isEmpty(i,j) || map.isStyrofoam(i,j)) )
+          successors.add(new SearchAndAvoidNode2D(this.map, i, j, this, this.goal));
+
        return successors; 
    }
  
