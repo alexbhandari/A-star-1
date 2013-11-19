@@ -1,3 +1,5 @@
+package NavMaps;
+
 public interface TypeMap {
 
    public Types getType(int x, int y);

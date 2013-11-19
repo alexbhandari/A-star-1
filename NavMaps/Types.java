@@ -1,3 +1,5 @@
+package NavMaps;
+
 public enum Types { NONE(      (byte) 0 ), 
                     STYROFOAM( (byte) 1 ), 
                     OBSTACLE(  (byte) 2 ), 

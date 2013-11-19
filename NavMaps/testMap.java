@@ -1,3 +1,7 @@
+import NavMaps.Types;
+import NavMaps.TypeMap;
+import NavMaps.FieldMap;
+
 public class testMap {
 
    public static void main(String[] args) {

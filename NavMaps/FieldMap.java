@@ -1,3 +1,5 @@
+package NavMaps;
+
 public class FieldMap implements TypeMap {
 
    public byte[][] map;
